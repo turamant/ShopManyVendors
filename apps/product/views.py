@@ -2,7 +2,7 @@ import random
 
 from django.shortcuts import render, get_object_or_404
 
-from apps.product.models import Product
+from apps.product.models import Product, Category
 
 
 def product(request, category_slug, product_slug):
@@ -21,3 +21,9 @@ def product(request, category_slug, product_slug):
     }
 
     return render(request, 'product/product.html', context)
+
+def category(request, category_slug):
+    category = get_object_or_404(Category, slug=category_slug)
+
+    return render(request, 'product/category.html', {'category': category})
+
