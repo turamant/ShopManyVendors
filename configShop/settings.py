@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -75,16 +81,7 @@ WSGI_APPLICATION = 'configShop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'shop_many_sellers',
-        'USER': 'columb',
-        'PASSWORD': 'olimp',
-        'HOST': '127.0.0.1',
-        'PORT': 5432,
-        }
-    }
+
 
 
 
