@@ -2,7 +2,8 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
-from django.utils.text import slugify
+
+from pytils.translit import slugify
 
 from apps.vendor.forms import ProductForm
 from apps.vendor.models import Vendor
