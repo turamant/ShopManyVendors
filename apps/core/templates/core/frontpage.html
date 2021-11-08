@@ -1,6 +1,9 @@
 
 {% extends 'core/base.html' %}
 
+
+{% extends 'core/base.html' %}
+
 {% block title %}Welcome | {% endblock %}
 
 {% block content %}
@@ -8,5 +11,16 @@
         <div class="column is-12 has-text-centered mt-6 mb-6">
             <h2 class="is-size-3">Newest products</h2>
         </div>
+
+        {% for product in newest_products %}
+            <div class="column is-3 product-list-item">
+                <div class="box">
+                    <figure class="image is-4by3 mb-4">
+                        <img src="{{ product.get_thumbnail }}">
+                    </figure>
+                    <h2 class="subtitle">{{ product.title }}</h2>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
