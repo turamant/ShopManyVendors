@@ -139,6 +139,16 @@
 
             <h2 class="subtitle">Payment information</h2>
 
+            <div id="card-element">
+                <!-- A Stripe Element will be inserted here -->
+            </div>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="notification is-danger">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+
             <div class="field">
                 <div class="control">
                     <button class="button is-dark mt-4 is-uppercase">Checkout</button>
