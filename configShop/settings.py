@@ -33,8 +33,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-STRIPE_PUB_KEY = 'pk_test_51IaGrcHeqmgb1QiuG622WhjRNTSICaqPuSAmr8xHf2NU7s61CWqWofWjxD6lJEeJUDUED9Vv9FFvFihrGTOINZNq00IlAF4Bcm'
-STRIPE_SECRET_KEY ='sk_test_51IaGrcHeqmgb1QiuAPQVtpvRrfNXDhOYHrpREKSjKf7MbVEgVhSNpZXVHeOD2ojNVDWuSs23tbsSeU6RZr0Lk78500pdAirsRO'
 #login vendor
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'vendor_admin'
@@ -43,8 +41,6 @@ LOGOUT_REDIRECT_URL = 'frontpage'
 #cart
 SESSION_COOKIE_AGE = 86400
 CART_SESSION_ID = 'cart'
-
-
 
 # Application definition
 
