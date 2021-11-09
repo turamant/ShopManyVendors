@@ -85,3 +85,10 @@ def edit_vendor(request):
             return redirect('vendor_admin')
 
     return render(request, 'vendor/edit_vendor.html', {'vendor': vendor})
+
+
+def vendors(request):
+    vendors = Vendor.objects.all()
+
+    return render(request, 'vendor/vendors.html', {'vendors': vendors})
+
