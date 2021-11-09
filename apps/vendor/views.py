@@ -1,6 +1,6 @@
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 
 from pytils.translit import slugify
@@ -92,3 +92,7 @@ def vendors(request):
 
     return render(request, 'vendor/vendors.html', {'vendors': vendors})
 
+def vendor(request, vendor_id):
+    vendor = get_object_or_404(Vendor, pk=vendor_id)
+
+    return render(request, 'vendor/vendor.html', {'vendor': vendor})
