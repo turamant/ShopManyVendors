@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 from pytils.translit import slugify
 
-from apps.vendor.forms import ProductForm
+from apps.vendor.forms import ProductForm, ProductImageForm
 from apps.vendor.models import Vendor
 
 def become_vendor(request):
@@ -74,6 +74,14 @@ def edit_product(request, pk):
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
+        image_form = ProductImageForm(request.POST, request.FILES)
+
+        if image_form.is_valid():
+            productimage = image_form.save(commit=False)
+            productimage.product = product
+            image_form.save()
+
+            return redirect('vendor_admin')
 
         if form.is_valid():
             form.save()
@@ -81,9 +89,10 @@ def edit_product(request, pk):
             return redirect('vendor_admin')
     else:
         form = ProductForm(instance=product)
+        image_form = ProductImageForm()
 
 
-    return render(request, 'vendor/edit_product.html', {'form': form, 'product': product})
+    return render(request, 'vendor/edit_product.html', {'form': form, 'image_form': image_form, 'product': product})
 
 
 @login_required
