@@ -37,8 +37,8 @@ def cart_detail(request):
                 order = checkout(request, first_name, last_name, email, address, zipcode, place, phone, cart.get_total_cost())
 
                 cart.clear()
-                notify_customer(order)
-                notify_vendor(order)
+                #notify_customer(order)
+                #notify_vendor(order)
 
                 return redirect('success')
             except Exception:
