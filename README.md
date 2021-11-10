@@ -17,3 +17,4 @@
 <p>Postgres</p>
 
 ![alt text](screenshots/vitrina-1.png "Описание будет тут")
+![alt text](screenshots/add-product.png "Описание будет тут")
