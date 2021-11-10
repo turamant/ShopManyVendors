@@ -31,21 +31,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
-#login vendor
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'vendor_admin'
-LOGOUT_REDIRECT_URL = 'frontpage'
-
-#cart
-SESSION_COOKIE_AGE = 86400
-CART_SESSION_ID = 'cart'
-
-
-
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -97,8 +82,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'configShop.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
 
 
 
@@ -145,9 +129,6 @@ STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 
-
-
-
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
@@ -160,8 +141,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
 
 import dj_database_url
 prod_db = dj_database_url.config(conn_max_age=500)
