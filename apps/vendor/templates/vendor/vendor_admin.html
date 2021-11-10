@@ -1,32 +1,32 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Vendor admin | {% endblock %}
+{% block title %}Администратор продавца | {% endblock %}
 
 {% block content %}
     <div class="box">
-        <h1 class="title">Vendor admin - {{ vendor.name }}</h1>
+        <h1 class="title">Администратор продавца - {{ vendor.name }}</h1>
 
-        <strong>My balance: </strong>${{ vendor.get_balance }}<br>
-        <strong>My paid amount: </strong>${{ vendor.get_paid_amount }}
+        <strong>Мой баланс: </strong>${{ vendor.get_balance }}<br>
+        <strong>Полученная оплата по счетам: </strong>${{ vendor.get_paid_amount }}
 
 
         <hr>
-        <a href="{% url 'edit_vendor' %}" class="button is-info is-uppercase">Edit</a>
-        <a href="{% url 'logout' %}" class="button is-danger is-uppercase">Log out</a>
+        <a href="{% url 'edit_vendor' %}" class="button is-info is-uppercase">Редактировать</a>
+        <a href="{% url 'logout' %}" class="button is-danger is-uppercase">Разлогиниться</a>
     </div>
 
  <div class="box">
-        <h2 class="is-size-3 mb-4">My products</h2>
+        <h2 class="is-size-3 mb-4">Мои товары</h2>
 
-        <a href="{% url 'add_product' %}" class="button is-dark is-uppercase mb-6">Add product</a>
+        <a href="{% url 'add_product' %}" class="button is-dark is-uppercase mb-6">Добавить товар</a>
 
         {% if products %}
             <table class="table is-fullwidth">
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Price</th>
-                        <th>Actions</th>
+                        <th>Наименование</th>
+                        <th>Цена</th>
+                        <th>Действия</th>
                     </tr>
                 </thead>
 
@@ -34,20 +34,20 @@
                     {% for product in products %}
                         <tr>
                             <td><a href="{% url 'product' product.category.slug product.slug %}">{{ product.title }}</a></td>
-                            <td>${{ product.price }}</td>
-                            <td><a href="{% url 'edit_product' product.id %}">Edit</a></td>
+                            <td>{{ product.price }} руб.</td>
+                            <td><a href="{% url 'edit_product' product.id %}">Редактировать</a></td>
 
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
         {% else %}
-            <p>You don't have any products yet...</p>
+            <p>У вас еще нет никаких тоаров...</p>
         {% endif %}
     </div>
 
 <div class="box">
-        <h2 class="is-size-3 mb-4">My orders</h2>
+        <h2 class="is-size-3 mb-4">Мои заказы</h2>
 
         {% if orders %}
             {% for order in orders %}
@@ -58,20 +58,20 @@
                         </div>
 
                         <div class="column is-12">
-                            <b>Name:</b> {{ order.first_name }} {{ order.last_name }}<br>
-                            <b>Address:</b> {{ order.address }}<br>
-                            <b>Zip and place:</b> {{ order.zipcode }} {{ order.place }}<br>
-                            <b>E-mail:</b> {{ order.email }}<br>
-                            <b>Phone:</b> {{ order.phone }}
+                            <b>Имя:</b> {{ order.first_name }} {{ order.last_name }}<br>
+                            <b>Адрес:</b> {{ order.address }}<br>
+                            <b>Населенный пункт и индекс:</b> {{ order.place }} {{ order.zipcode }}<br>
+                            <b>E-почта:</b> {{ order.email }}<br>
+                            <b>Телефон:</b> {{ order.phone }}
 
                             <table class="table is-fullwidth mt-4">
                                 <thead>
                                     <tr>
-                                        <th>Title</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Paid</th>
-                                        <th>Total</th>
+                                        <th>Наименование</th>
+                                        <th>Цена</th>
+                                        <th>Количество</th>
+                                        <th>Оплачено</th>
+                                        <th>Итого</th>
                                     </tr>
                                 </thead>
 
@@ -80,10 +80,10 @@
                                         {% if item.vendor == request.user.vendor %}
                                             <tr>
                                                 <td>{{ item.product.title }}</td>
-                                                <td>${{ item.product.price }}</td>
+                                                <td>{{ item.product.price }} руб.</td>
                                                 <td>{{ item.quantity }}</td>
                                                 <td>{{ item.vendor_paid|yesno:"Yes,No" }}</td>
-                                                <td>${{ item.get_total_price }}</td>
+                                                <td>{{ item.get_total_price }} руб.</td>
                                             </tr>
                                         {% endif %}
                                     {% endfor %}

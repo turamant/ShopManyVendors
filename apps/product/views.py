@@ -26,15 +26,13 @@ def product(request, category_slug, product_slug):
         imagesstring += ('{"thumbnail": "%s", "image": "%s", "id": "%s"},' % (
         image.get_thumbnail(), image.image.url, image.id))
 
-    print(imagesstring)
-
     if request.method == "POST":
         form = AddToCartForm(request.POST)
 
         if form.is_valid():
             quantity = form.cleaned_data['quantity']
             cart.add(product_id=product.id, quantity=quantity, update_quantity=False)
-            messages.success(request, "The product was added to the cart")
+            messages.success(request, "Продукт был добавлен в корзину")
 
             return redirect('product', category_slug=category_slug, product_slug=product_slug)
     else:

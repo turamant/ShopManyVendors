@@ -1,26 +1,27 @@
 
 {% extends 'core/base.html' %}
 
-{% block title %}Edit product | {% endblock %}
+{% block title %}Редактировать товар | {% endblock %}
 
 {% block content %}
-    <h1 class="title">Edit product</h1>
+
+    <h1 class="title">Редактировать товар</h1>
 
     <form method="post" action="." enctype="multipart/form-data">
-        {% csrf_token %}
 
+        {% csrf_token %}
         {{ form.as_p }}
 
         <div class="field">
             <div class="control">
-                <button class="button is-dark is-uppercase">Save changes</button>
+                <button class="button is-dark is-uppercase">Сохранить изменения</button>
             </div>
         </div>
     </form>
 
 <hr>
 
-    <h2 class="subtitle">Images</h2>
+    <h2 class="subtitle">Фотографии</h2>
 
     <form method="post" action="." enctype="multipart/form-data">
         {% csrf_token %}
@@ -29,7 +30,7 @@
 
         <div class="field">
             <div class="control">
-                <button class="button is-dark is-uppercase">Add image</button>
+                <button class="button is-dark is-uppercase">Добавить фотографии</button>
             </div>
         </div>
     </form>
