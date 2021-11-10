@@ -26,7 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+#SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = '#vgiuvihif9797f8fv89yv98fy9fvy9fyv988ydv98fyf98vy98fdyv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,6 +42,19 @@ LOGOUT_REDIRECT_URL = 'frontpage'
 #cart
 SESSION_COOKIE_AGE = 86400
 CART_SESSION_ID = 'cart'
+
+
+
+
+STRIPE_PUB_KEY = 'pk_test_51IaGrcHeqmgb1QiuG622WhjRNTSICaqPuSAmr8xHf2NU7s61CWqWofWjxD6lJEeJUDUED9Vv9FFvFihrGTOINZNq00IlAF4Bcm'
+STRIPE_SECRET_KEY ='sk_test_51IaGrcHeqmgb1QiuAPQVtpvRrfNXDhOYHrpREKSjKf7MbVEgVhSNpZXVHeOD2ojNVDWuSs23tbsSeU6RZr0Lk78500pdAirsRO'
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_HOST_USER = 'viktoraskvart@yandex.ru'
+EMAIL_HOST_PASSWORD = 'KkXkJHPJQ7g3L5e'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = True
+DEFAULT_EMAIL_FROM = 'ShopManyVendors <noreply@viktoraskvart@yandex.ru>'
 
 # Application definition
 
