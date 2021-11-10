@@ -16,4 +16,4 @@
 <h2>Database</h2>
 <p>Postgres</p>
 
-![alt text](screenshots/vitrina.png "Описание будет тут")
+![alt text](screenshots/vitrina-1.png "Описание будет тут")
