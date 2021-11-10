@@ -15,3 +15,5 @@
 
 <h2>Database</h2>
 <p>Postgres</p>
+
+![alt text](screenshots/vitrina.png "Описание будет тут")
